@@ -1,0 +1,43 @@
+:root {
+	--border-color: #fff;
+	--primary-color: #ffd04e;
+}
+
+.menu {
+	margin-bottom: 1.5em;
+}
+
+.bg-default {
+	background-color: #ffd04e;
+}
+
+.main {
+	margin-top: 1.5em;
+}
+
+.box {
+	border: solid 1px #dfdfdf;
+	padding: 25px !important;
+}
+
+li.list-group-item.active {
+	background-color: #fff;
+	border-color: #ffd04e;
+    border-left: solid 10px #ffd04e;
+}
+
+li a {
+	color: #212529;
+}
+
+li a:hover {
+	text-decoration: none;
+}
+
+li a:hover {
+	color: #ffd04e;
+}
+
+h4 {
+	color: #009933 !important;
+}
