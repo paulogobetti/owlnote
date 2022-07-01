@@ -30,3 +30,11 @@
         $tasks = $taskTools->recover();
 
     }
+
+    else if($action == 'update') {
+
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+
+    }

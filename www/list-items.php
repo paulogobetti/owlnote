@@ -5,6 +5,8 @@
 
 ?>
 
+<!DOCTYPE HTML>
+
 <html lang="en">
 
 <head>
@@ -18,6 +20,44 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<script>
+
+		function edit(id, taskPlaceholder) {
+			
+			let form = document.createElement('form')
+			form.action = 'public-controller.php?new=update'
+			form.method = 'POST'
+			form.className = 'row'
+
+			let inputTask = document.createElement('input')
+			inputTask.type = 'text'
+			inputTask.name = 'task'
+			inputTask.className = 'col-6 mr-4 form-control'
+			inputTask.value = taskPlaceholder
+
+			let inputId = document.createElement('input')
+			inputId.type = 'hidden'
+			inputId.name = 'id'
+			inputId.value = id
+
+			let button = document.createElement('button')
+			button.type = 'submit'
+			button.className = 'col-4 btn btn-success'
+			button.innerHTML = 'Update'
+
+			form.appendChild(inputTask)
+			form.appendChild(inputId)
+			form.appendChild(button)
+
+			let task = document.getElementById('task-' + id)
+
+			task.innerHTML = ''
+
+			task.insertBefore(form, task[0])
+
+		}
+
+	</script>
 
 </head>
 
@@ -45,10 +85,12 @@
 							<hr>
 							<?php foreach($tasks as $taskItem => $task) { ?>
 								<div class="row mb-3 d-flex align-items-center">
-									<div class="col-sm-9"><?= $task->task ?> (<?= $task->status ?>)</div>
+									<div class="col-sm-9" id="task-<?= $task->id ?>">
+										<?= $task->task ?> (<?= $task->status ?>)
+									</div>
 									<div class="col-sm-3 mt-2 d-flex justify-content-between">
 										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-										<i class="fas fa-edit fa-lg text-info"></i>
+										<i class="fas fa-edit fa-lg text-info" onclick="edit(<?= $task->id ?>, '<?= $task->task ?>')"></i>
 										<i class="fas fa-check-square fa-lg text-success"></i>
 									</div>
 								</div>

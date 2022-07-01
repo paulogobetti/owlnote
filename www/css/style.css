@@ -32,12 +32,11 @@ li a {
 
 li a:hover {
 	text-decoration: none;
-}
-
-li a:hover {
-	color: #ffd04e;
+	letter-spacing: .1rem;
+	transition: .6s;
+	color: #000;
 }
 
 h4 {
-	color: #009933 !important;
+	color: #3a3a3a !important;
 }
