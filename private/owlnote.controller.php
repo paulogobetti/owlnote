@@ -40,11 +40,25 @@
         $connection = new Connection();
 
         $taskTools = new TaskTools($connection, $task);
-        
+
         if($taskTools->update()) {
 
             header('location: list-items.php');
 
         }
+
+    }
+
+    else if($action == 'remove') {
+
+        $task = new Task();
+        $task->__set('id', $_GET['id']);
+
+        $connection = new Connection();
+
+        $taskTools = new TaskTools($connection, $task);
+        $taskTools->remove();
+
+        header('location: list-items.php');
 
     }

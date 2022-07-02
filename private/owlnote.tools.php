@@ -6,8 +6,10 @@
         public $task;
 
         public function __construct(Connection $connection, Task $task) {
+
             $this->connection = $connection->connect();
             $this->task = $task;
+
         }
 
         public function insert() {
@@ -42,6 +44,11 @@
         }
 
         public function remove() {
+
+            $query = 'DELETE FROM app_tasks WHERE id = :id';
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':id', $this->task->__get('id'));
+            $stmt->execute();
 
         }
 
