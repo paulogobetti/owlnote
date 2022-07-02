@@ -2,7 +2,7 @@
 
 <head>
 
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>O W L N O T E</title>
 	<!-- BOOTSTRAP CSS -->
@@ -10,7 +10,7 @@
 	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
 
 </head>
 

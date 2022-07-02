@@ -22,11 +22,9 @@
         public function recover() {
 
             $query = 'SELECT t.id, s.status, t.task
-            FROM app_tasks AS t
-            LEFT JOIN app_status AS s ON (t.task_status = s.id)
-            ';
-            
-            // $query = 'SELECT id, task_status, task FROM app_tasks';
+                      FROM app_tasks AS t
+                      LEFT JOIN app_status AS s ON (t.task_status = s.id)
+                      ';
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -34,6 +32,12 @@
         }
 
         public function update() {
+
+            $query = 'UPDATE app_tasks SET task = :task WHERE id = :id';
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':task', $this->task->__get('task'));
+            $stmt->bindValue(':id', $this->task->__get('id'));
+            return $stmt->execute();
 
         }
 

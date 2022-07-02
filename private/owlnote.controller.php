@@ -16,7 +16,7 @@
         $taskTools = new TaskTools($connection, $task);
         $taskTools->insert();
 
-        header('Location: new-item.php?success=1');
+        header('location: new-item.php?success=1');
 
     }
 
@@ -33,8 +33,18 @@
 
     else if($action == 'update') {
 
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
+        $task = new Task();
+        $task->__set('id', $_POST['id']);
+        $task->__set('task', $_POST['task']);
+
+        $connection = new Connection();
+
+        $taskTools = new TaskTools($connection, $task);
+        
+        if($taskTools->update()) {
+
+            header('location: list-items.php');
+
+        }
 
     }

@@ -2,15 +2,15 @@
 
 <head>
 
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>O W L N O T E</title>
 	<!-- BOOTSTRAP CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- CUSTOM CSS -->
+	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
 
 </head>
 

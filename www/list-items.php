@@ -11,36 +11,36 @@
 
 <head>
 
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>O W L N O T E</title>
 	<!-- BOOTSTRAP CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- CUSTOM CSS -->
+	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
 	<script>
 
 		function edit(id, taskPlaceholder) {
 			
-			let form = document.createElement('form')
+			const form = document.createElement('form')
 			form.action = 'public-controller.php?new=update'
 			form.method = 'POST'
 			form.className = 'row'
 
-			let inputTask = document.createElement('input')
+			const inputTask = document.createElement('input')
 			inputTask.type = 'text'
 			inputTask.name = 'task'
 			inputTask.className = 'col-6 mr-4 form-control'
 			inputTask.value = taskPlaceholder
 
-			let inputId = document.createElement('input')
+			const inputId = document.createElement('input')
 			inputId.type = 'hidden'
 			inputId.name = 'id'
 			inputId.value = id
 
-			let button = document.createElement('button')
+			const button = document.createElement('button')
 			button.type = 'submit'
 			button.className = 'col-4 btn btn-success'
 			button.innerHTML = 'Update'
@@ -49,7 +49,7 @@
 			form.appendChild(inputId)
 			form.appendChild(button)
 
-			let task = document.getElementById('task-' + id)
+			const task = document.getElementById('task-' + id)
 
 			task.innerHTML = ''
 
