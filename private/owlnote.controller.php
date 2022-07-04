@@ -62,3 +62,18 @@
         header('location: list-items.php');
 
     }
+
+    else if($action == 'complete') {
+
+        $task = new Task();
+        $task->__set('id', $_GET['id']);
+        $task->__set('task_status', 2);
+
+        $connection = new Connection();
+
+        $taskTools = new TaskTools($connection, $task);
+        $taskTools->markComplete();
+
+        header('location: list-items.php');
+
+    }

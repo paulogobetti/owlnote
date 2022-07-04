@@ -26,7 +26,7 @@
             $query = 'SELECT t.id, s.status, t.task
                       FROM app_tasks AS t
                       LEFT JOIN app_status AS s ON (t.task_status = s.id)
-                      ';
+                     ';
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -51,5 +51,27 @@
             $stmt->execute();
 
         }
+
+        public function markComplete() {
+
+            $query = 'UPDATE app_tasks SET task_status = :task_status WHERE id = :id';
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':task_status', $this->task->__get('task_status'));
+            $stmt->bindValue(':id', $this->task->__get('id'));
+            return $stmt->execute();
+
+        }
+
+        // public function listPendingTasks() {
+
+        //     $query = 'SELECT t.id, s.status, t.task
+        //               FROM app_tasks AS t
+        //               LEFT JOIN app_status AS s ON (t.task_status = s.id)
+        //              ';
+        //     $stmt = $this->connection->prepare($query);
+        //     $stmt->execute();
+        //     return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        // }
 
     }

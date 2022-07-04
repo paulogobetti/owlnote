@@ -63,6 +63,12 @@
 
 		}
 
+		function markComplete(id) {
+
+			location.href = 'list-items.php?new=complete&id=' + id;
+
+		}
+
 	</script>
 
 </head>
@@ -96,8 +102,10 @@
 									</div>
 									<div class="col-sm-3 mt-2 d-flex justify-content-between">
 										<i class="fas fa-trash-alt fa-lg text-danger" onclick="remove(<?= $task->id ?>)"></i>
-										<i class="fas fa-edit fa-lg text-info" onclick="edit(<?= $task->id ?>, '<?= $task->task ?>')"></i>
-										<i class="fas fa-check-square fa-lg text-success"></i>
+										<?php if($task->status == 'pending') { ?>
+											<i class="fas fa-edit fa-lg text-info" onclick="edit(<?= $task->id ?>, '<?= $task->task ?>')"></i>
+											<i class="fas fa-check-square fa-lg text-success" onclick="markComplete(<?= $task->id ?>)"></i>
+										<?php } ?>
 									</div>
 								</div>
 							<?php } ?>

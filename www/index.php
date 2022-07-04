@@ -1,3 +1,10 @@
+<?php
+
+	$action = 'list';
+	require 'public-controller.php';
+
+?>
+
 <html lang="en">
 
 <head>
@@ -11,6 +18,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
 	<script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
 
@@ -36,23 +44,20 @@
 
 							<h4>P E N D I N G&nbsp;&nbsp;&nbsp;&nbsp;T A S K S</h4>
 							<hr>
-							<div class="row mb-3 d-flex align-items-center">
-								<div class="col-sm-9">Lorem ipsum</div>
-								<div class="col-sm-3 mt-2 d-flex justify-content-between">
-									<i class="fas fa-trash-alt fa-lg text-danger"></i>
-									<i class="fas fa-edit fa-lg text-info"></i>
-									<i class="fas fa-check-square fa-lg text-success"></i>
+							<?php foreach($tasks as $taskItem => $task) { ?>
+								<div class="row mb-3 d-flex align-items-center">
+									<div class="col-sm-9" id="task-<?= $task->id ?>">
+										<?= $task->task ?> (<?= $task->status ?>)
+									</div>
+									<div class="col-sm-3 mt-2 d-flex justify-content-between">
+										<i class="fas fa-trash-alt fa-lg text-danger" onclick="remove(<?= $task->id ?>)"></i>
+										<?php if($task->status == 'pending') { ?>
+											<i class="fas fa-edit fa-lg text-info" onclick="edit(<?= $task->id ?>, '<?= $task->task ?>')"></i>
+											<i class="fas fa-check-square fa-lg text-success" onclick="markComplete(<?= $task->id ?>)"></i>
+										<?php } ?>
+									</div>
 								</div>
-							</div>
-
-							<div class="row mb-3 d-flex align-items-center">
-								<div class="col-sm-9">Lorem ipsum</div>
-								<div class="col-sm-3 mt-2 d-flex justify-content-between">
-									<i class="fas fa-trash-alt fa-lg text-danger"></i>
-									<i class="fas fa-edit fa-lg text-info"></i>
-									<i class="fas fa-check-square fa-lg text-success"></i>
-								</div>
-							</div>
+							<?php } ?>
 
 						</div>
 					</div>
