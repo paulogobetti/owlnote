@@ -1,9 +1,11 @@
 <?php
 
-	$action = 'list';
+	$action = 'pendingTasksRecover';
 	require 'public-controller.php';
 
 ?>
+
+<!DOCTYPE HTML>
 
 <html lang="en">
 
@@ -18,6 +20,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- FONT AWESOME -->
 	<script src="https://kit.fontawesome.com/e46ee4d785.js" crossorigin="anonymous"></script>
+	<!-- OWNOTE SCRIPTS -->
 	<script type="text/javascript" src="js/scripts.js"></script>
 
 </head>

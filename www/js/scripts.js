@@ -1,5 +1,5 @@
 function edit(id, taskPlaceholder) {
-			
+
     const form = document.createElement('form')
     form.action = 'public-controller.php?new=update'
     form.method = 'POST'

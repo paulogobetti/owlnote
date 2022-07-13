@@ -60,6 +60,8 @@
             $stmt->bindValue(':id', $this->task->__get('id'));
             return $stmt->execute();
 
+            header('location: list-items.php');
+
         }
 
         // public function listPendingTasks() {
@@ -73,5 +75,19 @@
         //     return $stmt->fetchAll(PDO::FETCH_OBJ);
 
         // }
+
+        public function pendingTasksRecover() {
+
+            $query = 'SELECT t.id, s.status, t.task
+                      FROM app_tasks AS t
+                      LEFT JOIN app_status AS s ON (t.task_status = s.id)
+                      WHERE t.task_status = :task_status
+                     ';
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':task_status', $this->task->__get('task_status'));
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        }
 
     }

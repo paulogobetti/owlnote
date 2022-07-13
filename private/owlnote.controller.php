@@ -77,3 +77,15 @@
         header('location: list-items.php');
 
     }
+
+    else if($action == 'pendingTasksRecover') {
+
+        $task = new Task();
+        $task->__set('task_status', 1);
+
+        $connection = new Connection();
+
+        $taskTools = new TaskTools($connection, $task);
+        $tasks = $taskTools->pendingTasksRecover();
+
+    }
